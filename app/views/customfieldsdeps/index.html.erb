@@ -1,0 +1,14 @@
+<div class="contextual">
+<%= link_to "New Custom Dep", {:controller=>"Customfieldsdeps", :action=>"new"}, :class => 'icon icon-add' %>
+</div>
+
+<h2>Custom Fields Deps</h2>
+
+<% if @teste1.any? %>
+
+
+<% else %>
+<p class="nodata"><%= l(:label_no_data) %></p>
+<% end %>
+
+

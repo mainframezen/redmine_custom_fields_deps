@@ -1,0 +1,6 @@
+class Customfielddeps < ActiveRecord::Base
+  unloadable
+  belongs_to :custom_field, :foreign_key: "parent_id"
+  acts_as_tree :order => "name"
+  
+end
