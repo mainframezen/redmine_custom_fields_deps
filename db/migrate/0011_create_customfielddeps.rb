@@ -1,8 +1,10 @@
 class CreateCustomfielddeps < ActiveRecord::Migration
   def self.up
     create_table :customfielddeps do |t|
-      t.column :custom_field_id, :integer
-      t.column :parent_id, :integer
+      t.column :name, :string
+      t.column :custom_master_id, :integer
+      t.column :custom_slave_id, :integer
+      t.column :type , :integer
     end
   end
 

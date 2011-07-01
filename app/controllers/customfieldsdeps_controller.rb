@@ -4,9 +4,8 @@ class CustomfieldsdepsController < ApplicationController
 
   before_filter :require_admin
 
- 
   def index
-    @teste1 = [1,2,3]
+    list
   end
        
   def list
