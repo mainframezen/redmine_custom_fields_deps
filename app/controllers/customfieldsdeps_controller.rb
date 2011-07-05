@@ -9,7 +9,7 @@ class CustomfieldsdepsController < ApplicationController
   end
        
   def list
-    @teste = [1,2,3]
+    @custs = Customfielddep.find(:all,:order=>'name')
   end
   
 

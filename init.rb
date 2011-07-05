@@ -11,6 +11,6 @@ Redmine::Plugin.register :redmine_custom_fields_deps do
   author_url 'http://mainframezen.com'
   menu :admin_menu, :customfieldsdeps, 
     { :controller => 'customfieldsdeps', :action => 'list' },
-    :caption => 'Custom Fields Dependencies',
+    :caption => :l_custdeps_plural,
     :html => {:class => 'custom_fields'}
 end

@@ -1,3 +1,4 @@
-# English strings go here for Rails i18n
 en:
-  my_label: "My label"
+ l_custdeps_plural: "Custom Fields deps"
+ l_custdeps_new: "New custom dep"
+
