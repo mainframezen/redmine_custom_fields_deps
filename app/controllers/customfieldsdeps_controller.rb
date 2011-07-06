@@ -38,7 +38,7 @@ class CustomfieldsdepsController < ApplicationController
   # save is for saving the record
   def update
         @custdep = Customfielddep.find(params[:id])
-	yml = YAML.load(@custdep.yaml)
+	yml = YAML.load(params[:customfielddep][:yaml])
 	master = CustomField.find(@custdep.custom_master_id)
 	slave = CustomField.find(@custdep.custom_slave_id)
 	master_values = ""
@@ -83,8 +83,10 @@ class CustomfieldsdepsController < ApplicationController
   # edit allows to create/edit the dependency tree
   def edit
 	@custdep = Customfielddep.find(params[:id])
+	if @custdep.yaml? 
 	@custdep.yaml.gsub!(/\r/,"")
 	@custdep.yaml.gsub!(/\n+/,"\n")
+	end
 	@customs = CustomField.find(:all,:conditions=>"type='IssueCustomField'",:order=>"name")
 	@custs_h = {}
         @customs.each do |c|

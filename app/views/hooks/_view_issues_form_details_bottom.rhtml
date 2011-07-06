@@ -1,9 +1,16 @@
 <script type="text/javascript" charset="utf-8">
 
+
 Form.Element.disable("issue_custom_field_values_2");
 
 var master = document.getElementById("issue_custom_field_values_1");
 var slave = document.getElementById("issue_custom_field_values_2");
+
+Event.observe(master,'change', function(){ update_select(master,slave) });
+
+function update_select(m,s) {
+	alert(m.value);
+}
 
 </script>
 <%= Time.now.to_s %>
