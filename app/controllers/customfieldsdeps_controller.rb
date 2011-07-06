@@ -52,7 +52,7 @@ class CustomfieldsdepsController < ApplicationController
 	master.save
 	slave.possible_values = slave_values
 	slave.save
-        if request.post? and @custdep.update_attributes(params[:customfielddep])
+        if @custdep.update_attributes(params[:customfielddep])
                 flash[:notice] = l(:notice_successful_save)
                 redirect_to :action => "list"
         else

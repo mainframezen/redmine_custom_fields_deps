@@ -2,11 +2,13 @@ require 'redmine'
 
 RAILS_DEFAULT_LOGGER.info 'Starting this plugin for RedMine'
 
+require_dependency 'redmine_custom_fields_deps/hooks'
+
 Redmine::Plugin.register :redmine_custom_fields_deps do
   name 'Redmine Custom Fields Deps plugin'
   author 'mainframezen'
   description 'Redmine plugin that allows dependant custom fields'
-  version '0.0.2'
+  version '0.0.3'
   url 'https://github.com/mainframezen/redmine_custom_fields_deps'
   author_url 'http://mainframezen.com'
   menu :admin_menu, :customfieldsdeps, 
