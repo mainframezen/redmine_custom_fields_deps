@@ -1,4 +1,6 @@
 class CustomfieldsdepsController < ApplicationController
+  require 'yaml'
+
   unloadable
   layout 'admin'
 
@@ -36,6 +38,20 @@ class CustomfieldsdepsController < ApplicationController
   # save is for saving the record
   def update
         @custdep = Customfielddep.find(params[:id])
+	yml = YAML.load(@custdep.yaml)
+	master = CustomField.find(@custdep.custom_master_id)
+	slave = CustomField.find(@custdep.custom_slave_id)
+	master_values = ""
+	slave_values = ""
+	yml.each_key do |key| 
+		master_values = master_values+key+"\n"
+		slave_values = slave_values+"\n"+yml[key].join("\n")
+	end
+	master_values.chomp
+	master.possible_values = master_values
+	master.save
+	slave.possible_values = slave_values
+	slave.save
         if request.post? and @custdep.update_attributes(params[:customfielddep])
                 flash[:notice] = l(:notice_successful_save)
                 redirect_to :action => "list"
@@ -67,6 +83,8 @@ class CustomfieldsdepsController < ApplicationController
   # edit allows to create/edit the dependency tree
   def edit
 	@custdep = Customfielddep.find(params[:id])
+	@custdep.yaml.gsub!(/\r/,"")
+	@custdep.yaml.gsub!(/\n+/,"\n")
 	@customs = CustomField.find(:all,:conditions=>"type='IssueCustomField'",:order=>"name")
 	@custs_h = {}
         @customs.each do |c|
