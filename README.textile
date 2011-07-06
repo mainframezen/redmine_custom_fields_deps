@@ -1,0 +1,24 @@
+h1. redmine_custom_fields_deps
+
+This is a Redmine plugin that allows you to make two custom fields with list format and issue related to depend as category and subcategory.
+
+h2. Motivation
+
+One real company wants to use Redmine as ticketing system for helpdesk service.
+
+The requirement is that there are two custom fiels identifying system and subsystem to report the incident. 
+
+You need two selects, one that is "system" and another which content depends on the "system" selectd. This second select is  aka "subsystem".
+
+h2. Sample YAML
+
+<pre>
+	Mainframe:
+	 - Contracts
+	 - Clients
+	Java portal:
+	 - Invoice
+	 - AT
+	 - Spool	
+</pre>
+
