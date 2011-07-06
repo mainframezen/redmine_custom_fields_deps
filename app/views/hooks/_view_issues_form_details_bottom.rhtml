@@ -19,10 +19,13 @@ custhash = x.to_json
 %>   
 
 var master = document.getElementById("<%= master_id %>");
+mv = master.value;
 var slave = document.getElementById("<%= slave_id %>");
+sv = slave.value;
 var custhash = <%= custhash %>;
 
-slave.disable();
+update_select(master,slave);
+slave.value = sv;
 
 // prototype dependency
 Event.observe(master,'change', function(){ update_select(master,slave) });
