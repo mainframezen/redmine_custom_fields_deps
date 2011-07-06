@@ -9,7 +9,7 @@
     </p>
     <p>
     <label for="custom_master_id"><%= l(:l_select_master_prompt) %></label>
-    <%= f.collection_select(:custom_master_id, @customs,:id,:name,:label=>"ola") -%>
+    <%= f.collection_select(:custom_master_id, @customs,:id,:name) -%>
     </p>
     <p>
     <label for="custom_slave_id"><%= l(:l_select_slave_prompt) %></label>
@@ -19,4 +19,5 @@
   <%= submit_tag l(:button_save) -%>
 
 <% end -%>
+
 

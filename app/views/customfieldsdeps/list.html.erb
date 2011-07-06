@@ -5,8 +5,24 @@
 <h2><%= l(:l_custdeps_plural) %></h2>
 
 <% if @custs.any? %>
+<table class="list groups">
+  <thead><tr>
+  <th><%=l(:l_custdeps_name)%></th>
+  <th><%=l(:l_select_master_prompt)%></th>
+  <th><%=l(:l_select_slave_prompt)%></th>
+  <th></th>
+  </tr></thead>
+  <tbody>
+<% @custs.each do |cust| %>
+  <tr class="<%= cycle 'odd', 'even' %>">
+    <td><%= cust.name %></td>
+    <td align="center"><%= cust.custom_master_id %></td>
+    <td align="center"><%= cust.custom_slave_id %></td>
+    <td class="buttons"></td>
+  </tr>
+<% end %>
+</table>
 
-<%= @custs%>
 
 <% else %>
 <p class="nodata"><%= l(:label_no_data) %></p>
