@@ -3,6 +3,6 @@ pt:
  l_custdeps_new: "Nova dependência especial"
  l_custdeps_edit: "Editar dependência especial"
  l_custdeps_name: "Nome da dependência"
- l_select_master_prompt: "Campo personalizado primário"
- l_select_slave_prompt: "Campo personalizado secundário"
+ l_select_master_prompt: "Campo primário"
+ l_select_slave_prompt: "Campo secundário"
 

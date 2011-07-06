@@ -9,11 +9,11 @@
     </p>
     <p>
     <label for="custom_master_id"><%= l(:l_select_master_prompt) %></label>
-    <%= f.collection_select(:custom_master_id, @customs,:id,:name) -%>
+    <%= @custs_h[@custdep.custom_master_id] -%>
     </p>
     <p>
     <label for="custom_slave_id"><%= l(:l_select_slave_prompt) %></label>
-    <%= f.collection_select(:custom_slave_id, @customs,:id,:name) -%>
+    <%= @custs_h[@custdep.custom_slave_id] -%>
     </p>
   </div>
   <%= submit_tag l(:button_save) -%>
