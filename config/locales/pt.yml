@@ -5,4 +5,5 @@ pt:
  l_custdeps_name: "Nome da dependência"
  l_select_master_prompt: "Campo primário"
  l_select_slave_prompt: "Campo secundário"
+ field_yaml: "Use o formato YAML http://www.yaml.org"
 

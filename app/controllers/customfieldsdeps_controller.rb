@@ -32,6 +32,20 @@ class CustomfieldsdepsController < ApplicationController
 	end
      
   end
+
+  # save is for saving the record
+  def update
+        @custdep = Customfielddep.find(params[:id])
+        if request.post? and @custdep.update_attributes(params[:customfielddep])
+                flash[:notice] = l(:notice_successful_save)
+                redirect_to :action => "list"
+        else
+                flash[:notice] = l(:notice_unsuccessful_save)
+                redirect_to :action => 'edit', :id=> @custdep.id
+        end
+
+  end
+
   
   # new record being created
   def new
@@ -60,5 +74,5 @@ class CustomfieldsdepsController < ApplicationController
         end
 
   end
-  
+
 end

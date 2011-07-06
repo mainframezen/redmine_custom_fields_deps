@@ -2,18 +2,21 @@
 
 <%= error_messages_for 'cust_deps' %>
 
-<% labelled_tabular_form_for :customfielddep, @custdep, :url =>{:action => 'save'} do |f|  %>
+<% labelled_tabular_form_for :customfielddep, @custdep, :url =>{:action => 'update', :id => @custdep} do |f|  %>
   <div class="box"> 
     <p>
     <%= f.text_field 'name', :required=>true, :label=>l(:l_custdeps_name) -%>
     </p>
     <p>
     <label for="custom_master_id"><%= l(:l_select_master_prompt) %></label>
-    <%= @custs_h[@custdep.custom_master_id] -%>
+    <%= f.collection_select(:custom_master_id, @customs,:id,:name,{},:disabled => true) -%>
     </p>
     <p>
     <label for="custom_slave_id"><%= l(:l_select_slave_prompt) %></label>
-    <%= @custs_h[@custdep.custom_slave_id] -%>
+    <%= f.collection_select(:custom_slave_id, @customs,:id,:name,{},:disabled=>true) -%>
+    </p>
+    <p>
+    <%= f.text_area :yaml, :value => @custdep.yaml.to_a.join("\n"), :rows => 25, :cols=>50  %>
     </p>
   </div>
   <%= submit_tag l(:button_save) -%>
