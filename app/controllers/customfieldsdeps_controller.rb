@@ -35,5 +35,20 @@ class CustomfieldsdepsController < ApplicationController
     @custdep = Customfielddep.new
     @customs = CustomField.find(:all,:conditions=>"type='IssueCustomField'",:order=>"name")
   end
+
+  def destroy
+    @custdep = Customfielddep.find(params[:id])
+    if @custdep.destroy 
+	flash[:notice] = l(:notice_successful_delete)
+    else
+        flash[:notice] = l(:notice_unsuccessful_save)
+    end
+    redirect_to :action => "list"
+  end
+
+  def edit
+	@custdep = Customfielddep.new
+	@customs = CustomField.find(:all,:conditions=>"type='IssueCustomField'",:order=>"name")
+  end
   
 end

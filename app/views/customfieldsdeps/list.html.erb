@@ -15,10 +15,10 @@
   <tbody>
 <% @custs.each do |cust| %>
   <tr class="<%= cycle 'odd', 'even' %>">
-    <td><%= cust.name %></td>
+    <td><%= link_to cust.name, :action=>"edit", :id=>cust %></td>
     <td align="center"><%= @custs_h[cust.custom_master_id] %></td>
     <td align="center"><%= @custs_h[cust.custom_slave_id] %></td>
-    <td class="buttons"></td>
+    <td class="buttons"><%= link_to l(:button_delete), {:controller=>"Customfieldsdeps", :action=>"destroy", :id=>cust.id}, :confirm => l(:text_are_you_sure), :method => :post, :class => 'icon icon-del' %></td>
   </tr>
 <% end %>
 </table>
