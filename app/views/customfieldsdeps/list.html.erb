@@ -1,8 +1,8 @@
 <div class="contextual">
-<%= link_to "New Custom Dep", {:controller=>"Customfieldsdeps", :action=>"new"}, :class => 'icon icon-add' %>
+<%= link_to l(:l_custdeps_new), {:controller=>"Customfieldsdeps", :action=>"new"}, :class => 'icon icon-add' %>
 </div>
 
-<h2>Custom Fields Deps</h2>
+<h2><%= l(:l_custdeps_plural) %></h2>
 
 <% if @custs.any? %>
 

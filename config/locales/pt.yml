@@ -1,4 +1,7 @@
 pt:
  l_custdeps_plural: "Campos personalizados especiais"
  l_custdeps_new: "Nova dependência especial"
+ l_custdeps_name: "Nome da dependência"
+ l_select_master_prompt: "Campo personalizado primário"
+ l_select_slave_prompt: "Campo personalizado secundário"
 
