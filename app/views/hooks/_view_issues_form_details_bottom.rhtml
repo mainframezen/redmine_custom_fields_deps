@@ -1,15 +1,35 @@
 <script type="text/javascript" charset="utf-8">
 
+<%
+fields = []
+@issue.custom_field_values.each do |cust|
+   fields.push(cust.custom_field_id)
+end
+custdep = nil
+for i in 0..(fields.length-1) do
+   for j in 0..(fields.length-1) do
+	break if custdep = Customfielddep.find(:first,:conditions=>"custom_master_id="+fields[i].to_s+" and custom_slave_id="+fields[j].to_s) 
+   end
+   break if !custdep.nil?
+end
+master_id = "issue_custom_field_values_"+fields[i].to_s
+slave_id = "issue_custom_field_values_"+fields[j].to_s
+x = YAML.load(custdep.yaml)
+custhash = x.to_json
+%>   
 
-Form.Element.disable("issue_custom_field_values_2");
+var master = document.getElementById("<%= master_id %>");
+var slave = document.getElementById("<%= slave_id %>");
+var custhash = <%= custhash %>;
 
-var master = document.getElementById("issue_custom_field_values_1");
-var slave = document.getElementById("issue_custom_field_values_2");
+slave.disable();
 
 Event.observe(master,'change', function(){ update_select(master,slave) });
 
 function update_select(m,s) {
-	alert(m.value);
+alert(m.value);
+
+
 }
 
 </script>
