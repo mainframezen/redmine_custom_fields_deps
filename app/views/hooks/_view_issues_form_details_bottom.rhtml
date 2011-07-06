@@ -12,9 +12,11 @@ for i in 0..(fields.length-1) do
    end
    break if !custdep.nil?
 end
+return if (custdep.nil?)
 master_id = "issue_custom_field_values_"+fields[i].to_s
 slave_id = "issue_custom_field_values_"+fields[j].to_s
-x = YAML.load(custdep.yaml)
+x = YAML.load(custdep.yaml) if !custdep.nil?
+x = "" if x.nil?
 custhash = x.to_json
 %>   
 
