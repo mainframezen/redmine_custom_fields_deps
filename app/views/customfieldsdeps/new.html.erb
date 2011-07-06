@@ -5,7 +5,7 @@
 <% labelled_tabular_form_for :customfielddep, @custdep, :url =>{:action => 'save'} do |f|  %>
   <div class="box"> 
     <p>
-    <%= f.text_field 'name', :label=>l(:l_custdeps_name) -%>
+    <%= f.text_field 'name', :required=>true, :label=>l(:l_custdeps_name) -%>
     </p>
     <p>
     <label for="custom_master_id"><%= l(:l_select_master_prompt) %></label>
