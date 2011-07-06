@@ -16,8 +16,8 @@
 <% @custs.each do |cust| %>
   <tr class="<%= cycle 'odd', 'even' %>">
     <td><%= cust.name %></td>
-    <td align="center"><%= cust.custom_master_id %></td>
-    <td align="center"><%= cust.custom_slave_id %></td>
+    <td align="center"><%= @custs_h[cust.custom_master_id] %></td>
+    <td align="center"><%= @custs_h[cust.custom_slave_id] %></td>
     <td class="buttons"></td>
   </tr>
 <% end %>

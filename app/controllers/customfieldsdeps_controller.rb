@@ -11,6 +11,10 @@ class CustomfieldsdepsController < ApplicationController
   def list
     @custs = Customfielddep.find(:all,:order=>'name')
     @customs = CustomField.find(:all,:conditions=>"type='IssueCustomField'",:order=>"name")
+    @custs_h = {}
+	@customs.each do |c|
+		@custs_h[c.id] = c.name
+	end
   end
   
 
