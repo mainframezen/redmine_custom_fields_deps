@@ -2,6 +2,7 @@
 
 == Sample YAML
 
+<code>
 	Mainframe:
 	 - Contracts
 	 - Clients
@@ -9,4 +10,5 @@
 	 - Invoice
 	 - AT
 	 - Spool	
+</code>
 
