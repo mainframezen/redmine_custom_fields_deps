@@ -20,22 +20,6 @@ custhash = x.to_json
 
 <script type="text/javascript" charset="utf-8">
 
-var master = document.getElementById("<%= master_id %>");
-var slave = document.getElementById("<%= slave_id %>");
-var custhash = <%= custhash %>;
-
-var bb=[];
-for (k in custhash) bb.push(k);
-bb.sort();
-master.options.length=0;
-master.options[master.options.length] = new Option('-- <%= l(:actionview_instancetag_blank_option) %> --','');
-for (var i=0; i<bb.length; ++i) master.options[master.options.length] = new Option(bb[i],bb[i]);
-
-update_select(master,slave);
-
-// prototype dependency
-Event.observe(master,'change', function(){ update_select(master,slave) });
-
 function update_select(m,s) {
 slave.options.length=0;
 if (custhash[m.value]) {
@@ -46,8 +30,22 @@ if (custhash[m.value]) {
 } else {
 	slave.disable();
 }
-
 }
+
+var master = document.getElementById("<%= master_id %>");
+mv = master.value;
+var slave = document.getElementById("<%= slave_id %>");
+sv = slave.value;
+var custhash = <%= custhash %>;
+
+update_select(master,slave);
+
+// prototype dependency
+master.onchange=function(){ update_select(master,slave) };
+
+//Event.observe(master,'change', function(){ update_select(master,slave) });
+
+
 
 </script>
 
