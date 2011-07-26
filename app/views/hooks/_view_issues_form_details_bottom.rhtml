@@ -23,12 +23,12 @@ custhash = x.to_json
 function update_select(m,s) {
 slave.options.length=0;
 if (custhash[m.value]) {
-	slave.enable();
+	try { slave.disabled=false; } catch(err) { slave.enable(); }
 	var ary = custhash[m.value];
 	for(i=0;i<ary.length;i++)
  		slave.options[slave.options.length] = new Option(ary[i],ary[i]); 
 } else {
-	slave.disable();
+	try { slave.disabled=true; } catch(err) { slave.disable(); }
 }
 }
 
