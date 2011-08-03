@@ -39,6 +39,11 @@ class CustomfieldsdepsController < ApplicationController
   def update
         @custdep = Customfielddep.find(params[:id])
 	yml = YAML.load(params[:customfielddep][:yaml])
+	if yml.nil? or !yml
+		flash[:notice] = l(:notice_unsuccessful_save)
+		redirect_to :action => 'edit', :id=> @custdep.id
+		return
+	end
 	master = CustomField.find(@custdep.custom_master_id)
 	slave = CustomField.find(@custdep.custom_slave_id)
 	master_values = ""
