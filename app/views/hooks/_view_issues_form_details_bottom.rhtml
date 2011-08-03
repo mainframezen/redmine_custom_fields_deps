@@ -25,6 +25,7 @@ slave.options.length=0;
 if (custhash[m.value]) {
 	try { slave.disabled=false; } catch(err) { slave.enable(); }
 	var ary = custhash[m.value];
+        ary.sort();
         slave.options[0] = new Option('-- Please Select --');
 	for(i=0;i<ary.length;i++)
  		slave.options[slave.options.length] = new Option(ary[i],ary[i]); 
