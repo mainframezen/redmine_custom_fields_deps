@@ -22,6 +22,14 @@ h2. Sample YAML
 	 - Spool	
 </pre>
 
+h2. Issues
+
+Does not work if custom fields are 'for all projects', since it depends  on finding the projects custom fields explicitly associated with the project.
+
+h2. Project module
+
+It now has acts as a project module to configure the default assignee for the ticket depending on the values of the dependent custom fields (see #3)
+
 h2. License
 
 http://www.gnu.org/licenses/license-list.html#WTFPL
