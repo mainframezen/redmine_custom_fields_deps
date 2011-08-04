@@ -1,4 +1,4 @@
-class CreateCustomfielddeps < ActiveRecord::Migration
+class Table1 < ActiveRecord::Migration
   def self.up
     create_table :customfielddeps do |t|
       t.column :name, :string
@@ -16,3 +16,5 @@ class CreateCustomfielddeps < ActiveRecord::Migration
     drop_table :customfielddeps
   end
 end
+
+

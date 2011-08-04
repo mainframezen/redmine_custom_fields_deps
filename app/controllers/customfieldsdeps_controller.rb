@@ -100,4 +100,10 @@ class CustomfieldsdepsController < ApplicationController
 
   end
 
+  # setup configs per project
+  def project
+  	@project = Project.find(params[:project_id])
+	@issue_custom_fields = IssueCustomField.find(:all, :order => "#{CustomField.table_name}.position")
+  end
+
 end

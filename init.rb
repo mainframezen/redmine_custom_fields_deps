@@ -15,4 +15,8 @@ Redmine::Plugin.register :redmine_custom_fields_deps do
     { :controller => 'customfieldsdeps', :action => 'list' },
     :caption => :l_custdeps_plural,
     :html => {:class => 'custom_fields'}
+  project_module :customfieldsdeps do
+  	permission :edit_custom_deps, :customfieldsdeps => :project
+  end
+  menu :project_menu, :customfieldsdeps, { :controller => 'customfieldsdeps', :action => 'project' }, :caption => :l_custdeps_plural, :last=>true, :param => :project_id
 end
